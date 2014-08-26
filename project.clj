@@ -1,6 +1,6 @@
 (defproject layout-example "0.1.0-SNAPSHOT"
-  :description "FIXME: write this!"
-  :url "http://example.com/FIXME"
+  :description "A testing ground for the future of LT's layout."
+  :url "http://github.com/joshuafcole/lt-layout-example"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-2156"]
                  [ring "1.2.1"]
