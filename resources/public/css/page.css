@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  height: 100%;
+}
+
+#main {
+  flex-grow: 1;
+}
+
+#content {
+  flex-grow: 1;
+}
+
+/* Containers */
+.container {
+  display: flex;
+  position: relative;
+
+  border: 1px solid gray;
+  -webkit-user-select: none;
+}
+
+.container.horizontal {
+  flex-direction: row;
+}
+
+.container.vertical {
+  flex-direction: column;
+}
+
+
+.container.horizontal > .container {
+  border-right: 5px solid gray;
+}
+
+.container.horizontal > .container:last-child {
+  border-right-width: 0;
+}
+
+.container.vertical > .container {
+  border-bottom: 5px solid gray;
+}
+
+.container.vertical > .container:last-child {
+  border-bottom-width: 0;
+}
+
+
+/* Resizables */
+.resize-handle {
+  position: absolute;
+  background: black;
+}
+
+/* Resizables -- Horizontal */
+.resize-handle.right, .resize-handle.left {
+  top: 0;
+  bottom: 0;
+  width: 5px;
+
+  cursor: col-resize;
+}
+
+.resize-handle.right {
+  right: -5px;
+}
+.resizable:first-child > .resize-handle.left { display: none; }
+
+.resize-handle.left {
+  left: -5px;
+}
+.resizable:last-child > .resize-handle.right { display: none; }
+.resize-handle.right, .resize-handle.left {
+  top: 0;
+  bottom: 0;
+  width: 5px;
+
+  cursor: col-resize;
+}
+
+.resize-handle.right {
+  right: -5px;
+}
+.resizable:first-child > .resize-handle.left { display: none; }
+
+.resize-handle.left {
+  left: -5px;
+}
+.resizable:last-child > .resize-handle.right { display: none; }
+
+/* Resizables -- Vertical */
+.resize-handle.right, .resize-handle.left {
+  top: 0;
+  bottom: 0;
+  width: 5px;
+
+  cursor: col-resize;
+}
+
+.resize-handle.right {
+  right: -5px;
+}
+.resizable:first-child > .resize-handle.left { display: none; }
+
+.resize-handle.left {
+  left: -5px;
+}
+.resizable:last-child > .resize-handle.right { display: none; }
+.resize-handle.top, .resize-handle.bottom {
+  left: 0;
+  right: 0;
+  height: 5px;
+
+  cursor: row-resize;
+}
+
+.resize-handle.top {
+  top: -5px;
+}
+.resizable:first-child > .resize-handle.top { display: none; }
+
+.resize-handle.bottom {
+  bottom: -5px;
+}
+.resizable:last-child > .resize-handle.bottom { display: none; }
+
+
+
+/* For demo purposes */
+body {
+  background-color: black
+}
+
+#root {
+  background: #202629;
+}
+
+#leftbar, #rightbar, #content, #bottombar {
+  padding: 1em;
+}#leftbar, #rightbar {
+  padding: 1em;
+}
+
+#leftbar {
+  background-color: #6699CC;
+
+}
+#rightbar {
+  background-color: #CC9966;
+}
+
+#content {
+  background-color: #66CC99;
+}
+#bottombar {
+  background-color: #FF9999;
+}
