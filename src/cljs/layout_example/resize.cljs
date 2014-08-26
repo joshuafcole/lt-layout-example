@@ -36,5 +36,6 @@
   (let [$container (jayq/parent $resizable)]
     (.on $container "mousemove.resize"
          #(resize $resizable %))
+    ;; @FIXME OR mouseout.
     (.one $container "mouseup.resize"
           #(.off $container "mousemove.resize"))))
