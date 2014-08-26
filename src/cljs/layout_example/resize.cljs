@@ -31,11 +31,15 @@
         off-y (- (.-pageY event) origin-y)]
     (real-height $resizable off-y)))
 
-
 (defn start [resize $resizable]
   (let [$container (jayq/parent $resizable)]
     (.on $container "mousemove.resize"
          #(resize $resizable %))
-    ;; @FIXME OR mouseout.
     (.one $container "mouseup.resize"
-          #(.off $container "mousemove.resize"))))
+          (fn []
+            (.off $container "mousemove.resize")
+            (.off $container "mouseout.resize")))
+    (.one $container "mouseleave.resize"
+          (fn []
+            (.off $container "mousemove.resize")
+            (.off $container "mouseup.resize")))))
